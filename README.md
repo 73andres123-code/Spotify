@@ -9,7 +9,7 @@ This is an Angular application demonstrating a "Spotify Wrap-Up" experience usin
 *   **Top Artists**: List of your favorite artists.
 *   **Audio Features**: Insights into the average audio characteristics of your music.
 *   **Responsive Design**: Adapts to different screen sizes.
-*   **Mock Data**: All data is loaded from a local `sample-data.json` file.
+*   **Mock Data**: All data is loaded from a local `src/data/sample-data.ts` file.
 
 ## Project Structure
 
@@ -46,7 +46,7 @@ This is an Angular application demonstrating a "Spotify Wrap-Up" experience usin
     │       └── top-tracks.component.ts
     ├── data/
     │   ├── data.types.ts
-    │   └── sample-data.json
+    │   └── sample-data.ts
     └── services/
         └── data.service.ts
 ```
@@ -101,8 +101,6 @@ This application uses **mock data only** and does not interact with any external
 
 ## Customization
 
-*   **Mock Data**: Modify `src/data/sample-data.json` to change the displayed tracks, artists, and audio features.
+*   **Mock Data**: Modify `src/data/sample-data.ts` to change the displayed tracks, artists, and audio features.
 *   **Styling**: Adjust Tailwind CSS classes directly in the HTML templates or `app.component.css` for Angular Material overrides.
 *   **Components**: Extend existing components or add new ones to visualize other aspects of listening data.
-
-```

@@ -1,0 +1,175 @@
+import { AllData } from './data.types';
+
+export const SAMPLE_DATA: AllData = {
+  "tracks": [
+    {
+      "id": "t1",
+      "title": "Starlight Serenade",
+      "artist": "Nova Echo",
+      "album": "Celestial Dreams",
+      "coverArt": "https://picsum.photos/100/100?random=1",
+      "playCount": 2543210
+    },
+    {
+      "id": "t2",
+      "title": "Midnight Groove",
+      "artist": "Funk Foundry",
+      "album": "Retro Rhythms",
+      "coverArt": "https://picsum.photos/100/100?random=2",
+      "playCount": 1876543
+    },
+    {
+      "id": "t3",
+      "title": "Whispering Pines",
+      "artist": "Ember Falls",
+      "album": "Forest Echoes",
+      "coverArt": "https://picsum.photos/100/100?random=3",
+      "playCount": 1500000
+    },
+    {
+      "id": "t4",
+      "title": "Electric Pulse",
+      "artist": "Synthex",
+      "album": "Digital Dawn",
+      "coverArt": "https://picsum.photos/100/100?random=4",
+      "playCount": 1234567
+    },
+    {
+      "id": "t5",
+      "title": "City Lights",
+      "artist": "Urban Beat Collective",
+      "album": "Metropolis Melodies",
+      "coverArt": "https://picsum.photos/100/100?random=5",
+      "playCount": 1000000
+    },
+    {
+      "id": "t6",
+      "title": "Ocean Breeze",
+      "artist": "Aqueous",
+      "album": "Deep Blue",
+      "coverArt": "https://picsum.photos/100/100?random=6",
+      "playCount": 950000
+    },
+    {
+      "id": "t7",
+      "title": "Mountain Top",
+      "artist": "High Peak",
+      "album": "Altitude",
+      "coverArt": "https://picsum.photos/100/100?random=7",
+      "playCount": 800000
+    },
+    {
+      "id": "t8",
+      "title": "Desert Bloom",
+      "artist": "Cactus Groove",
+      "album": "Oasis Sounds",
+      "coverArt": "https://picsum.photos/100/100?random=8",
+      "playCount": 720000
+    },
+    {
+      "id": "t9",
+      "title": "Rainy Day Blues",
+      "artist": "Blues Harmonica Joe",
+      "album": "Stormy Nights",
+      "coverArt": "https://picsum.photos/100/100?random=9",
+      "playCount": 650000
+    },
+    {
+      "id": "t10",
+      "title": "Cosmic Drift",
+      "artist": "StarGazer",
+      "album": "Nebula Tones",
+      "coverArt": "https://picsum.photos/100/100?random=10",
+      "playCount": 580000
+    }
+  ],
+  "artists": [
+    {
+      "id": "a1",
+      "name": "Nova Echo",
+      "genre": "Synth-Pop",
+      "popularity": 92,
+      "image": "https://picsum.photos/200/200?random=11"
+    },
+    {
+      "id": "a2",
+      "name": "Funk Foundry",
+      "genre": "Funk",
+      "popularity": 88,
+      "image": "https://picsum.photos/200/200?random=12"
+    },
+    {
+      "id": "a3",
+      "name": "Ember Falls",
+      "genre": "Indie Folk",
+      "popularity": 75,
+      "image": "https://picsum.photos/200/200?random=13"
+    },
+    {
+      "id": "a4",
+      "name": "Synthex",
+      "genre": "Electronic",
+      "popularity": 85,
+      "image": "https://picsum.photos/200/200?random=14"
+    },
+    {
+      "id": "a5",
+      "name": "Urban Beat Collective",
+      "genre": "Hip-Hop",
+      "popularity": 90,
+      "image": "https://picsum.photos/200/200?random=15"
+    },
+    {
+      "id": "a6",
+      "name": "Aqueous",
+      "genre": "Ambient",
+      "popularity": 60,
+      "image": "https://picsum.photos/200/200?random=16"
+    },
+    {
+      "id": "a7",
+      "name": "High Peak",
+      "genre": "Rock",
+      "popularity": 70,
+      "image": "https://picsum.photos/200/200?random=17"
+    },
+    {
+      "id": "a8",
+      "name": "Cactus Groove",
+      "genre": "Psychedelic Rock",
+      "popularity": 68,
+      "image": "https://picsum.photos/200/200?random=18"
+    },
+    {
+      "id": "a9",
+      "name": "Blues Harmonica Joe",
+      "genre": "Blues",
+      "popularity": 72,
+      "image": "https://picsum.photos/200/200?random=19"
+    },
+    {
+      "id": "a10",
+      "name": "StarGazer",
+      "genre": "Space Rock",
+      "popularity": 80,
+      "image": "https://picsum.photos/200/200?random=20"
+    }
+  ],
+  "audioFeatures": [
+    { "trackId": "t1", "danceability": 0.75, "energy": 0.82, "valence": 0.91, "tempo": 128.5 },
+    { "trackId": "t2", "danceability": 0.88, "energy": 0.70, "valence": 0.85, "tempo": 110.2 },
+    { "trackId": "t3", "danceability": 0.55, "energy": 0.40, "valence": 0.60, "tempo": 85.0 },
+    { "trackId": "t4", "danceability": 0.79, "energy": 0.95, "valence": 0.78, "tempo": 135.0 },
+    { "trackId": "t5", "danceability": 0.80, "energy": 0.77, "valence": 0.70, "tempo": 98.6 },
+    { "trackId": "t6", "danceability": 0.40, "energy": 0.30, "valence": 0.50, "tempo": 60.0 },
+    { "trackId": "t7", "danceability": 0.65, "energy": 0.85, "valence": 0.72, "tempo": 140.0 },
+    { "trackId": "t8", "danceability": 0.60, "energy": 0.70, "valence": 0.65, "tempo": 105.0 },
+    { "trackId": "t9", "danceability": 0.50, "energy": 0.45, "valence": 0.58, "tempo": 75.0 },
+    { "trackId": "t10", "danceability": 0.70, "energy": 0.90, "valence": 0.80, "tempo": 120.0 }
+  ],
+  "summary": {
+    "totalTracksListened": 10567890,
+    "uniqueArtists": 10,
+    "totalListeningHours": 876
+  }
+}

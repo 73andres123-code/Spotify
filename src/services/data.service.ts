@@ -1,76 +1,43 @@
 import { Injectable, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-// Add map operator import for rxjs pipelines
-import { Observable, of, tap, map } from 'rxjs';
+import { Observable, of, tap, shareReplay } from 'rxjs';
+// Add map operator import
+import { map } from 'rxjs/operators';
 import { AllData, Track, Artist, AudioFeature, Summary } from '../data/data.types';
+import { SAMPLE_DATA } from '../data/sample-data'; // Directly import the TS data object
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private allData = signal<AllData | null>(null);
+  private dataLoad$: Observable<AllData>;
 
-  constructor(private http: HttpClient) {
-    this.loadData();
+  constructor() {
+    // Initialize dataLoad$ observable with the directly imported data
+    this.dataLoad$ = of(SAMPLE_DATA).pipe(
+      tap(data => this.allData.set(data)),
+      shareReplay(1) // Cache the result and share with future subscribers
+    );
   }
 
-  private loadData(): void {
-    // In a real app, this would be an API call. For mock data, we load the JSON directly.
-    this.http.get<AllData>('/sample-data.json').subscribe(
-      data => {
-        this.allData.set(data);
-      },
-      error => {
-        console.error('Error loading sample data:', error);
-        // Fallback or error handling
-        this.allData.set({
-          tracks: [],
-          artists: [],
-          audioFeatures: [],
-          summary: {
-            totalTracksListened: 0,
-            uniqueArtists: 0,
-            totalListeningHours: 0
-          }
-        });
-      }
-    );
+  // Private helper to get the loaded data observable
+  private getLoadedData(): Observable<AllData> {
+    return this.dataLoad$;
   }
 
   getTopTracks(): Observable<Track[]> {
-    return this.allData() ? of(this.allData()!.tracks) : this.getLoadedData().pipe(
-      map(data => data.tracks)
-    );
+    return this.getLoadedData().pipe(map(data => data.tracks));
   }
 
   getTopArtists(): Observable<Artist[]> {
-    return this.allData() ? of(this.allData()!.artists) : this.getLoadedData().pipe(
-      map(data => data.artists)
-    );
+    return this.getLoadedData().pipe(map(data => data.artists));
   }
 
   getAllAudioFeatures(): Observable<AudioFeature[]> {
-    return this.allData() ? of(this.allData()!.audioFeatures) : this.getLoadedData().pipe(
-      map(data => data.audioFeatures)
-    );
+    return this.getLoadedData().pipe(map(data => data.audioFeatures));
   }
 
   getSummary(): Observable<Summary> {
-    return this.allData() ? of(this.allData()!.summary) : this.getLoadedData().pipe(
-      map(data => data.summary)
-    );
-  }
-
-  private getLoadedData(): Observable<AllData> {
-    if (this.allData()) {
-      return of(this.allData()!);
-    }
-    // If data isn't loaded yet (e.g., first call before HTTP completes),
-    // re-request it or return an empty observable that will be populated later.
-    // For this simple example, we assume loadData() will complete quickly.
-    // A more robust solution might use a BehaviorSubject or a promise.
-    return this.http.get<AllData>('/sample-data.json').pipe(
-      tap(data => this.allData.set(data))
-    );
+    return this.getLoadedData().pipe(map(data => data.summary));
   }
 }
