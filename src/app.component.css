@@ -1,0 +1,28 @@
+/* Customize here: Basic styling for the application */
+:host {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Angular Material overrides for dark theme */
+.mat-sidenav-container, .mat-sidenav {
+  background-color: #1a202c !important; /* Tailwind's gray-900 / gray-800 */
+  color: #e2e8f0 !important; /* Tailwind's gray-200 */
+}
+
+.mat-toolbar {
+  background-color: #1a202c !important; /* Tailwind's gray-900 */
+  color: #e2e8f0 !important;
+}
+
+.mat-list-item {
+  color: #cbd5e0 !important; /* Tailwind's gray-300 */
+}
+
+.mat-list-item.bg-green-700 {
+  background-color: #047857 !important; /* Tailwind's green-700 */
+  color: #ffffff !important;
+}
+
+.mat-list-item.bg-green-700 mat-icon {
+  color: #ffffff !important;
+}

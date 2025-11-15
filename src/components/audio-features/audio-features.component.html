@@ -1,0 +1,61 @@
+<div class="p-4">
+  <h1 class="text-4xl font-extrabold mb-8 text-green-400 text-center">Your Average Audio Features</h1>
+
+  @if (averageFeatures()) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-blue-400 mb-4">directions_run</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Danceability</h2>
+          <p class="text-5xl font-bold text-green-500">{{ (averageFeatures()!.danceability * 100) | number:'1.0-0' }}%</p>
+          <p class="text-gray-400 text-center text-sm mt-2">(How suitable a track is for dancing)</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-red-400 mb-4">flash_on</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Energy</h2>
+          <p class="text-5xl font-bold text-green-500">{{ (averageFeatures()!.energy * 100) | number:'1.0-0' }}%</p>
+          <p class="text-gray-400 text-center text-sm mt-2">(Intensity and activity of a track)</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-yellow-400 mb-4">sentiment_satisfied_alt</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Valence</h2>
+          <p class="text-5xl font-bold text-green-500">{{ (averageFeatures()!.valence * 100) | number:'1.0-0' }}%</p>
+          <p class="text-gray-400 text-center text-sm mt-2">(Positivity of the musical mood)</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-pink-400 mb-4">speed</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Tempo</h2>
+          <p class="text-5xl font-bold text-green-500">{{ averageFeatures()!.tempo | number:'1.0-0' }} BPM</p>
+          <p class="text-gray-400 text-center text-sm mt-2">(Overall estimated tempo in beats per minute)</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300 md:col-span-2 lg:col-span-full">
+        <mat-card-content class="p-6 text-center">
+          <h2 class="text-3xl font-bold text-green-400 mb-4">Understanding Your Listening Style</h2>
+          <p class="text-lg text-gray-300">
+            These averages provide a snapshot of the general characteristics of your favorite music.
+            High danceability suggests you love to groove, high energy points to an active listening experience,
+            and high valence means your tunes tend to be more positive!
+          </p>
+          <p class="mt-4 text-sm text-gray-400">
+            (Calculated from your mock top tracks data.)
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @else {
+    <div class="flex justify-center items-center h-64">
+      <p class="text-xl text-gray-400">Loading audio features data...</p>
+    </div>
+  }
+</div>

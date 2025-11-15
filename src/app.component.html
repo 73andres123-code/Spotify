@@ -1,0 +1,46 @@
+<mat-sidenav-container class="h-screen bg-gray-900 text-gray-100">
+  <mat-sidenav #sidenav mode="over" class="bg-gray-800 text-gray-100 shadow-lg" [ngClass]="{'w-64': true}">
+    <div class="p-4 border-b border-gray-700">
+      <h2 class="text-xl font-bold text-green-400">Wrap-Up Menu</h2>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="bg-green-700 text-white rounded-md" class="py-3 px-4 flex items-center hover:bg-gray-700 transition-colors duration-200">
+        <mat-icon class="mr-3 text-green-400">dashboard</mat-icon>
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/top-tracks" routerLinkActive="bg-green-700 text-white rounded-md" class="py-3 px-4 flex items-center hover:bg-gray-700 transition-colors duration-200">
+        <mat-icon class="mr-3 text-green-400">audiotrack</mat-icon>
+        Top Tracks
+      </a>
+      <a mat-list-item routerLink="/top-artists" routerLinkActive="bg-green-700 text-white rounded-md" class="py-3 px-4 flex items-center hover:bg-gray-700 transition-colors duration-200">
+        <mat-icon class="mr-3 text-green-400">mic</mat-icon>
+        Top Artists
+      </a>
+      <a mat-list-item routerLink="/audio-features" routerLinkActive="bg-green-700 text-white rounded-md" class="py-3 px-4 flex items-center hover:bg-gray-700 transition-colors duration-200">
+        <mat-icon class="mr-3 text-green-400">graphic_eq</mat-icon>
+        Audio Features
+      </a>
+      <a mat-list-item routerLink="/login" routerLinkActive="bg-green-700 text-white rounded-md" class="py-3 px-4 flex items-center hover:bg-gray-700 transition-colors duration-200">
+        <mat-icon class="mr-3 text-green-400">login</mat-icon>
+        Login (Inactive)
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="flex flex-col h-full">
+    <mat-toolbar color="primary" class="bg-gray-900 text-gray-100 shadow-md">
+      <button mat-icon-button (click)="toggleSidenav()" class="mr-2 text-green-400">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="text-xl font-semibold">{{ title }}</span>
+      <span class="flex-grow"></span>
+      <button mat-icon-button class="text-green-400">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <main class="flex-grow p-6 overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

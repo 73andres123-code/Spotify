@@ -1,0 +1,49 @@
+<div class="p-4">
+  <h1 class="text-4xl font-extrabold mb-8 text-green-400 text-center">Your 2024 Wrap-Up</h1>
+
+  @if (summary()) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-purple-400 mb-4">music_note</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Total Tracks Listened</h2>
+          <p class="text-5xl font-bold text-green-500">{{ summary()!.totalTracksListened | number }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-blue-400 mb-4">person</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Unique Artists</h2>
+          <p class="text-5xl font-bold text-green-500">{{ summary()!.uniqueArtists | number }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+        <mat-card-content class="p-6 flex flex-col items-center">
+          <mat-icon class="text-6xl text-orange-400 mb-4">access_time</mat-icon>
+          <h2 class="text-2xl font-semibold mb-2 text-white">Total Listening Hours</h2>
+          <p class="text-5xl font-bold text-green-500">{{ summary()!.totalListeningHours | number }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Add more summary cards as needed -->
+      <mat-card class="bg-gray-800 text-gray-100 shadow-xl rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300 md:col-span-2 lg:col-span-full">
+        <mat-card-content class="p-6 text-center">
+          <h2 class="text-3xl font-bold text-green-400 mb-4">Welcome to Your Spotify Wrap-Up!</h2>
+          <p class="text-lg text-gray-300">
+            Dive into your personalized music journey of the past year.
+            Explore your top tracks, favorite artists, and discover insights into the audio features that define your listening experience.
+          </p>
+          <p class="mt-4 text-sm text-gray-400">
+            (Note: This application uses mock data for demonstration purposes.)
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @else {
+    <div class="flex justify-center items-center h-64">
+      <p class="text-xl text-gray-400">Loading summary data...</p>
+    </div>
+  }
+</div>

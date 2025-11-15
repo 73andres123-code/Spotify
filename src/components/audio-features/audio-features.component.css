@@ -1,0 +1,5 @@
+/* Customize here: Component-specific styles if needed, but Tailwind is primary */
+.mat-mdc-card {
+  background-color: #1f2937 !important; /* Tailwind gray-800 */
+  color: #e5e7eb !important; /* Tailwind gray-100 */
+}
